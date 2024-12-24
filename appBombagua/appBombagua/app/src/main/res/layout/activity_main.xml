@@ -19,11 +19,29 @@
         android:text="Apagar Bomba"
         android:layout_marginTop="16dp" />
 
+    <!--  mostrar los datos del sensor -->
+    <TextView
+        android:id="@+id/textViewData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ultimo Valor"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Botón para refrescar los datos -->
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar"
+        android:layout_marginTop="16dp" />
+
     <!-- Contenedor para el Fragmento -->
     <FrameLayout
         android:id="@+id/contenedor_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp" />
 </LinearLayout>
 
