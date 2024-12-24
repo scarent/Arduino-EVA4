@@ -136,10 +136,20 @@ void loop() {
   if (millis() - tiempoEscritura > 15000) {
     int response = ThingSpeak.writeField(myChannelNumber, 1, distancia, myWriteAPIKey);
     if (response == 200) {
-      Serial.println("Datos enviados a ThingSpeak correctamente.");
+      Serial.println("Distancia enviada a ThingSpeak correctamente.");
     } else {
-      Serial.println("Error al enviar datos a ThingSpeak: " + String(response));
+      Serial.println("Error al enviar distancia: " + String(response));
     }
+
+    // Enviar estado de la bomba al Campo 2
+    int estado = estadoBomba ? 1 : 0; // 1 para encendida, 0 para apagada
+    response = ThingSpeak.writeField(myChannelNumber, 2, estado, myWriteAPIKey);
+    if (response == 200) {
+      Serial.println("Estado de la bomba enviado a ThingSpeak correctamente.");
+    } else {
+      Serial.println("Error al enviar estado de la bomba: " + String(response));
+    }
+
     tiempoEscritura = millis();
   }
 }
